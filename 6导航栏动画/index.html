@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>导航栏渐变</title>
+    <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        charset="UTF-8">
+    <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    /*主容器*/
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        width: 100%;
+    }
+    /*横幅容器*/
+    .banner-wrapper {
+        z-index: 4;
+        transition: all 300ms ease-in-out;
+        position: fixed;
+        width: 100%;
+    }
+    /*横幅部分*/
+    .banner {
+        height: 77px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background: rgba(162, 192, 35, 1);
+        transition: all 300ms ease-in-out;
+    }
+    /*内容部分*/
+    .content {
+        background: url(https://unsplash.it/1400/1400?image=699) center no-repeat;
+        background-size: cover;
+        padding-top: 100%;
+    }
+    </style>
+</head>
+        
+<body>
+    <div class = "container">
+        <div class="banner-wrapper">
+            <div class="banner">
+                <div class="top">
+
+                </div>
+                <div class="nav">
+
+                </div>
+            </div>
+        </div>
+            <div class="content">
+
+        </div>
+    </div>
+    <script type="text/javascript">
+    (() => {
+        'use strict';
+        const handler = () => {
+            let refOffset = 0;  //refOffset用户向下滚动页面的距离
+            let visible = true;
+            const bannerHeight = 77;  //菜单高度
+            const bannerWrapper = document.querySelector(".banner-wrapper");
+            const banner = document.querySelector(".banner");
+            const newOffset = window.scrollY;
+            function animateOut() {
+                bannerWrapper.style.msTransform = "translateY(-${bannerHeight}px)";
+                bannerWrapper.style.Transform = "translateY(-${bannerHeight}px)";
+                bannerWrapper.style.webkitTransform = "translateY(-${bannerHeight}px)";
+                bannerWrapper.style.MozTransform = "translateY(-${bannerHeight}px)";
+                banner.style.background = "rgba(162,197,35,0.6)";
+            }
+            function animateIn() {
+                bannerWrapper.style.Transform = "translateY(0px)";
+                bannerWrapper.style.msTransform = "translateY(0px)";
+                bannerWrapper.style.webkitTransform = "translateY(0px)";
+                bannerWrapper.style.MozTransform = "translateY(0px)";
+                banner.style.background = "rgba(162,197,35,0.6)";
+            }
+            if(newOffset > bannerHeight) {  //菜单滚动到视野外
+            if(newOffset > refOffset) {  
+                animateOut();
+            }else if(newOffset < refOffset) {  //滑回视图
+                animateIn();
+            }
+              refOffset = newOffset;
+            }else {
+                banner.style.backgroundColor = "rgba(162,197,35,1)";
+            }
+        };
+        window.addEventListener('scroll',handler,false);
+    })();
+    </script>
+</body>
+        
+</html>

@@ -136,7 +136,7 @@
     }
     function next_pic() {
         var newLeft;
-        if(wrap.style.left === "-3600px") {
+        if(wrap.style.left === "-3600px") {  //最后一张图片，下一张得是第二张
             newLeft = -1200;
         }else {
             newLeft = parseInt(wrap.style.left) - 600;
@@ -145,7 +145,7 @@
     }
     function prev_pic() {
         var newLeft;
-        if(wrap.style.left === "0px") {
+        if(wrap.style.left === "0px") {  //第五张图片，下一张得是第四张图片
             newLeft = -2400;
         }else {
             newLeft = parseInt(wrap.style.left) + 600;
