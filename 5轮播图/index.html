@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>轮播图</title>
+    <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="UTF-8">
+    <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    .container {  /*为了只让图片显示在container中，限制高度和宽度和overflow:hidden；将其余图片隐藏,wrap相对于container左右移动*/
+        position: relative;
+        width: 600px;
+        height: 400px;
+        margin: 100px auto 0 auto;
+        box-shadow: 0 0 5px green;
+        overflow: hidden;
+    }
+    .wrap {   /*控制left和right控制图片左右移动*/
+        position: absolute;
+        width: 4200px;
+        height: 400px;
+        z-index: 1;
+    }
+    .container .wrap img {
+        float: left;
+        width: 600px;
+        height: 400px;
+    }
+    .container .buttons {
+        position: absolute;
+        right: 150px;
+        bottom: 20px;
+        width: 100px;
+        height: 10px;
+        z-index: 2;
+    }
+    .container .buttons span {
+        margin-left: 5px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: green;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+    }
+    .container .buttons span.on {
+        background-color: red;
+    }
+    .container .arrow {
+            position: absolute;
+            top: 35%;
+            color: green;
+            padding:0px 14px;
+            border-radius: 50%;
+            font-size: 50px;
+            z-index: 2;
+            display: none;
+        }
+        .container .arrow_left {
+            left: 10px;
+        }
+        .container .arrow_right {
+            right: 10px;
+        }
+        .container:hover .arrow {
+            display: block;
+        }
+        .container .arrow:hover {
+            background-color: rgba(0,0,0,0.2);
+        }
+        .container .arrow {
+            position: absolute;
+            top: 35%;
+            color: green;
+            padding: 0px 14px;
+            border-radius: 50%;
+            font-size: 50px;
+            z-index: 2;
+            display: none;
+        }
+        .container .arrow_left {
+            left: 10px;
+        }
+        .container .arrow_right {
+            right: 10px;
+        }
+        .container:hover .arrow {
+            display: block;
+        }
+        .container .arrow:hover {
+            background: rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrap" style="left:-600px">
+            <img src="images/5.gif" alt="">
+            <img src="images/1.jpg" alt="">
+            <img src="images/2.jpg" alt="">
+            <img src="images/3.jpg" alt="">
+            <img src="images/4.png" alt="">
+            <img src="images/5.gif" alt="">
+            <img src="images/1.jpg" alt="">
+        </div>
+        <div class="buttons">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+        <a href="javascript:;" class="arrow arrow_left">&lt;</a>
+        <a href="javascript:;" class="arrow arrow_right">&gt;</a>
+    </div>
+    <script type="text/javascript">
+    var wrap = document.querySelector(".wrap");
+    var next = document.querySelector(".arrow_right");
+    var prev = document.querySelector(".arrow_left");
+    next.onclick = function() {
+        next_pic();
+    }
+    prev.onclick = function() {
+        prev_pic();
+    }
+    function next_pic() {
+        var newLeft;
+        if(wrap.style.left === "-3600px") {
+            newLeft = -1200;
+        }else {
+            newLeft = parseInt(wrap.style.left) - 600;
+        }
+        wrap.style.left = newLeft + "px";
+    }
+    function prev_pic() {
+        var newLeft;
+        if(wrap.style.left === "0px") {
+            newLeft = -2400;
+        }else {
+            newLeft = parseInt(wrap.style.left) + 600;
+        }
+        wrap.style.left = newLeft + "px";
+    }
+    var timer = null;
+    function autoPlay() {
+        timer = setInterval(function() {
+            next_pic();
+        },1000);
+    }
+    autoPlay();
+    var container = document.querySelector(".container");
+    container.onmouseenter = function() {
+        clearInterval(timer);
+    }
+    container.onmouseleave = function() {
+        autoPlay();
+    }
+    </script>
+</body>
+</html>

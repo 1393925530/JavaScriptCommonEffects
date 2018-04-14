@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>定时打开窗口</title>
+    <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        content="text/html; charset=UTF-8">
+    <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        p {
+            font-size: 40px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <p>首页</p>
+    <script type="text/javascript">
+    function a() {
+        window.open("https://github.com/1393925530", "new", "height=200,width=400,top=10,left=20,location=no,resizeable=no", "false");
+    }
+    setTimeout("a()",5000);
+    </script>
+</body>
+
+</html>
