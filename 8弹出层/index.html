@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>弹出层</title>
+    <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        charset="UTF-8">
+    <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    #popupcontent {
+        position: absolute;
+        visibility: hidden;
+        overflow: hidden;
+        border: 1px solid #CCC;
+        background-color: #F9F9F9;
+        border: 1px solid #333;
+        padding: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id = "popupcontent">这是一个DIV弹窗效果</div>
+    <a href="#" onmouseover="showPopup(300,200);">Open popup</a>
+    <script type="text/javascript">
+    var baseText = null;
+    function showPopup(w,h) {
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.top = "200px";
+        popUp.style.left = "200px";
+        popUp.style.width = w + "px";  //窗口的宽度
+        popUp.style.height = h + "px";  //窗口的高度
+        if(baseText == null) 
+        baseText = popUp.innerHTML;
+        popUp.innerHTML = baseText + "<div id=\"statusbar\"><button onclick=\"hidePopup();\">Close window</button></div>";
+        var sbar = document.getElementById("statusbar");
+        sbar.style.marginTop = (parseInt(h)-40) + "px";
+        popUp.style.visibility = "visible";
+    }
+    function hidePopup() {
+        var popUp = document.getElementById("popupcontent");
+        popUp.style.visibility = "hidden";
+    }
+    </script>
+</body>
+
+</html>
