@@ -6,4 +6,4 @@ tab选项卡使用JavaScript实现&emsp;<a href = "http://htmlpreview.github.io/
 增加原生JavaScript弹出层效果&emsp;<a href = "http://htmlpreview.github.io/?https://github.com/1393925530/JavaScriptCommonEffects/blob/master/8%E5%BC%B9%E5%87%BA%E5%B1%82/index.html">预览</a><br />
 增加使用原生JavaScript和jQuery实现的手风琴菜单效果(推荐使用jQuery..)&emsp;<a href = "http://htmlpreview.github.io/?https://github.com/1393925530/JavaScriptCommonEffects/blob/master/9%E6%89%8B%E9%A3%8E%E7%90%B4%E8%8F%9C%E5%8D%95/jquery.html">预览</a><br />
 2018-04-16<br/>
-使用原生JavaScript实现瀑布流布局<a href="https://htmlpreview.github.io/?https://github.com/1393925530/JavaScriptCommonEffects/blob/master/10%E7%80%91%E5%B8%83%E6%B5%81/index.html">预览</a>
+使用原生JavaScript实现瀑布流布局<a href="https://htmlpreview.github.io/?https://github.com/1393925530/JavaScriptCommonEffects/blob/master/10%E7%80%91%E5%B8%83%E6%B5%81/index.html">预览</a>&emsp;瀑布流布局练习<a href="https://codepen.io/ZhouZhiChen/full/mxNVMo/"></a>
